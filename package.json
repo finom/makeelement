@@ -1,0 +1,27 @@
+{
+  "name": "makeelement",
+  "version": "0.0.0",
+  "description": "Simple function to use instead of document.createElement",
+  "main": "makeelement.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finom/makeelement.git"
+  },
+  "keywords": [
+    "createElement",
+    "dom"
+  ],
+  "author": "Andrey Gubanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finom/makeelement/issues"
+  },
+  "homepage": "https://github.com/finom/makeelement#readme",
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jsdom": "^9.4.2"
+  }
+}
