@@ -6,6 +6,7 @@ module.exports = {
         'no-param-reassign': 0,
         'no-var': 'error',
         'comma-dangle': ["error", "never"],
+        'import/no-extraneous-dependencies': 0
     },
     env: {
         jasmine: true
