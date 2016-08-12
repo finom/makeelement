@@ -1,4 +1,4 @@
-# makeElement
+# makeElement [![npm version](https://badge.fury.io/js/makeelement.svg)](https://badge.fury.io/js/makeelement) [![Build Status](https://travis-ci.org/finom/makeelement.svg?branch=master)](https://travis-ci.org/finom/makeelement)
 
 > Compact, fast dependency-free function to use instead of ``document.createElement``
 

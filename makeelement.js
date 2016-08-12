@@ -8,26 +8,26 @@ function makeElement(tagName, props) {
     const el = document.createElement(tagName);
 
     if (props) {
-        for(let i = 0, keys = Object.keys(props); i < keys.length; i++) {
+        for (let i = 0, keys = Object.keys(props); i < keys.length; i++) {
             const key = keys[i];
             const value = props[key];
 
             // set attributes
             if (key === 'attributes' && typeof value === 'object') {
-                for(let j = 0, attrsKeys = Object.keys(value); j < attrsKeys.length; j++) {
+                for (let j = 0, attrsKeys = Object.keys(value); j < attrsKeys.length; j++) {
                     const attrName = attrsKeys[i];
                     const attrValue = value[attrName];
                     el.setAttribute(attrName, attrValue);
                 }
             // create children
             } else if (key === 'children' && value) {
-                for(let j = 0; j < value.length; j++) {
+                for (let j = 0; j < value.length; j++) {
                     const child = makeElement(value[j]);
                     el.appendChild(child);
                 }
             // extend object (eg dataset or style)
             } else if (el[key] && typeof el[key] === 'object' && typeof value === 'object') {
-                for(let j = 0, objKeys = Object.keys(value); j < objKeys.length; j++) {
+                for (let j = 0, objKeys = Object.keys(value); j < objKeys.length; j++) {
                     const objKey = objKeys[i];
                     const objValue = value[objKey];
                     el[key][objKey] = objValue;
@@ -42,6 +42,6 @@ function makeElement(tagName, props) {
     return el;
 }
 
-if(typeof module === 'object') {
+if (typeof module === 'object') {
     module.exports = makeElement;
 }
