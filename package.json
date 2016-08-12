@@ -1,6 +1,6 @@
 {
   "name": "makeelement",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Simple function to use instead of document.createElement",
   "main": "makeelement.js",
   "scripts": {
