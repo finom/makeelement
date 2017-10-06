@@ -28,7 +28,7 @@ function makeElement(tagName, props) {
             // extend object (eg dataset or style)
             } else if (el[key] && typeof el[key] === 'object' && typeof value === 'object') {
                 for (let j = 0, objKeys = Object.keys(value); j < objKeys.length; j++) {
-                    const objKey = objKeys[i];
+                    const objKey = objKeys[j];
                     const objValue = value[objKey];
                     el[key][objKey] = objValue;
                 }
