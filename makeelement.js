@@ -1,11 +1,12 @@
 function makeElement(tagName, props) {
+    const { document, HTMLElement, Object } = window;
     // allow to pass tagName as a property of props instead of the first argument
     if (typeof tagName === 'object') {
         props = tagName;
-        tagName = props.tagName;
+        ({ tagName } = props);
     }
 
-    const el = document.createElement(tagName);
+    const el = document.createElement(tagName || 'div');
 
     if (props) {
         for (let i = 0, keys = Object.keys(props); i < keys.length; i++) {
@@ -22,7 +23,8 @@ function makeElement(tagName, props) {
             // create children
             } else if (key === 'children' && value) {
                 for (let j = 0; j < value.length; j++) {
-                    const child = makeElement(value[j]);
+                    const item = value[j];
+                    const child = item instanceof HTMLElement ? item : makeElement(item);
                     el.appendChild(child);
                 }
             // extend object (eg dataset or style)

@@ -3,7 +3,9 @@ const { JSDOM } = require('jsdom');
 
 const jasmine = new Jasmine();
 
-global.document = (new JSDOM('<!doctype html><html><body></body></html>')).window.document;
+const { window } = new JSDOM('<!doctype html><html><body></body></html>');
+
+global.window = window;
 
 jasmine.loadConfig({
     spec_dir: 'test',
