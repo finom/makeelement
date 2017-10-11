@@ -50,8 +50,7 @@ describe('makeElement', () => {
         }).style.position).toEqual('absolute');
     });
 
-    // this test is skipped until dataset is not supported by jsdom
-    xit('extends dataset object', () => {
+    it('extends dataset object', () => {
         expect(makeElement('div', {
             dataset: {
                 foo: 'bar'
