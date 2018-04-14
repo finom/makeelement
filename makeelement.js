@@ -1,5 +1,6 @@
 function makeElement(tagName, props) {
-    const { document, HTMLElement, Object } = window;
+    const { document, HTMLElement } = window;
+    const { keys: objectKeys } = Object;
     // allow to pass tagName as a property of props instead of the first argument
     if (typeof tagName === 'object') {
         props = tagName;
@@ -9,13 +10,13 @@ function makeElement(tagName, props) {
     const el = document.createElement(tagName || 'div');
 
     if (props) {
-        for (let i = 0, keys = Object.keys(props); i < keys.length; i++) {
+        for (let i = 0, keys = objectKeys(props); i < keys.length; i++) {
             const key = keys[i];
             const value = props[key];
 
             // set attributes
             if (key === 'attributes' && typeof value === 'object') {
-                for (let j = 0, attrsKeys = Object.keys(value); j < attrsKeys.length; j++) {
+                for (let j = 0, attrsKeys = objectKeys(value); j < attrsKeys.length; j++) {
                     const attrName = attrsKeys[i];
                     const attrValue = value[attrName];
                     el.setAttribute(attrName, attrValue);
@@ -29,7 +30,7 @@ function makeElement(tagName, props) {
                 }
             // extend object (eg dataset or style)
             } else if (el[key] && typeof el[key] === 'object' && typeof value === 'object') {
-                for (let j = 0, objKeys = Object.keys(value); j < objKeys.length; j++) {
+                for (let j = 0, objKeys = objectKeys(value); j < objKeys.length; j++) {
                     const objKey = objKeys[j];
                     const objValue = value[objKey];
                     el[key][objKey] = objValue;
