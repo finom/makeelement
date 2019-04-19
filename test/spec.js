@@ -28,6 +28,21 @@ describe('makeElement', () => {
         expect(element.children[1].tagName).toEqual('Q');
     });
 
+    it('creates childNodes', () => {
+        const element = makeElement('div', {
+            childNodes: [{
+                tagName: 'span'
+            },
+            window.document.createElement('q'),
+            window.document.createTextNode('foo')
+            ]
+        });
+
+        expect(element.childNodes[0].tagName).toEqual('SPAN');
+        expect(element.childNodes[1].tagName).toEqual('Q');
+        expect(element.childNodes[2].textContent).toEqual('foo');
+    });
+
     it('adds attribute', () => {
         expect(makeElement('div', {
             attributes: {
