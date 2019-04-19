@@ -12,7 +12,7 @@ function makeElement(tagName, props) {
     if (props) {
         for (let i = 0, keys = objectKeys(props); i < keys.length; i++) {
             const key = keys[i];
-            const value = props[key];
+            let value = props[key];
 
             // set attributes
             if (key === 'attributes' && typeof value === 'object') {
@@ -23,6 +23,7 @@ function makeElement(tagName, props) {
                 }
             // create children
             } else if ((key === 'children' || key === 'childNodes') && value) {
+                value = [].slice.call(value);
                 for (let j = 0; j < value.length; j++) {
                     const item = value[j];
                     const child = item instanceof Node ? item : makeElement(item);
